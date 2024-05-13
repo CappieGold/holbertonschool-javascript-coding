@@ -1,19 +1,14 @@
 #!/usr/bin/node
-
+// Import the request module
 const request = require('request');
-
-// Retrieve the URL from the command line arguments
+// Get the URL from the command line arguments
 const url = process.argv[2];
-
-if (!url) {
-  console.log('Please provide a URL as an argument');
-  process.exit(1);
-}
-
-request(url, { method: 'GET' }, (error, response, body) => {
+// Function to make a GET request and print the status code
+request.get(url, (error, response) => {
   if (error) {
     console.error('Error:', error);
-    return;
+  } else {
+    // Print the status code
+    console.log('code:', response.statusCode);
   }
-  console.log(`code: ${response.statusCode}`);
 });
