@@ -18,8 +18,6 @@ request(url, (error, response, body) => {
   fs.writeFile(filePath, body, 'utf8', (err) => {
     if (err) {
       console.error('Failed to write to file:', err);
-    } else {
-      console.log('Content saved to', filePath);
     }
   });
 });
